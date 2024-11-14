@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
+import vercel from '@astrojs/vercel/serverless';
 import UnoCSS from "@unocss/astro";
 import icon from "astro-icon";
 
@@ -29,6 +30,7 @@ export default defineConfig({
     remarkPlugins: [remarkReadingTime],
   },
   output: "server",
+  adapter: vercel({ edgeMiddleware: true }),
   vite: {
     assetsInclude: "**/*.riv",
   },
